@@ -11,8 +11,8 @@ COPY jars/. /etc/kafka-connect/jars/
 COPY launch /etc/confluent/docker/
 RUN chmod +x /etc/confluent/docker/launch
 
-COPY connect-log4j.properties /etc/kafka/connect-log4j.properties
-RUN chmod +x /etc/kafka/connect-log4j.properties
+COPY log4j.properties.template /etc/confluent/docker/log4j.properties.template
+RUN chmod +x /etc/confluent/docker/log4j.properties.template
 
 COPY connect-mongo-source.properties /etc/kafka-connect/connect-mongo-source.properties
 RUN chmod +x /etc/kafka-connect/connect-mongo-source.properties
