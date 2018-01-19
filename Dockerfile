@@ -8,18 +8,6 @@ LABEL io.confluent.docker.build.number=$BUILD_NUMBER
 
 COPY jars/. /etc/kafka-connect/jars/
 
-COPY launch /etc/confluent/docker/
-RUN chmod +x /etc/confluent/docker/launch
-
-COPY log4j.properties.template /etc/confluent/docker/log4j.properties.template
-RUN chmod +x /etc/confluent/docker/log4j.properties.template
-
-COPY connect-mongo-source.properties /etc/kafka-connect/connect-mongo-source.properties
-RUN chmod +x /etc/kafka-connect/connect-mongo-source.properties
-
-COPY connect-mongo-catentry-sink.properties /etc/kafka-connect/connect-mongo-catentry-sink.properties
-RUN chmod +x /etc/kafka-connect/connect-mongo-catentry-sink.properties
-
 ENV COMPONENT=kafka-connect
 
 RUN echo "===> Installing JDBC, Elasticsearch and Hadoop connectors ..." \
